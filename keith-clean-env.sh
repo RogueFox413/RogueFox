@@ -1,0 +1,59 @@
+# 🧠 Keith's Clean .env.local (remove duplicates and fix URLs)
+
+# ================================================================
+# SUPABASE DATABASE (Your primary setup)
+# ================================================================
+POSTGRES_PRISMA_URL="postgres://postgres.zkjwuvwijtvofwuezzms:P6QoQcIdwn2k0937@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&pgbouncer=true"
+POSTGRES_URL_NON_POOLING="postgres://postgres.zkjwuvwijtvofwuezzms:P6QoQcIdwn2k0937@aws-0-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require"
+
+# Legacy Supabase variables (keep for compatibility)
+POSTGRES_URL="postgres://postgres.zkjwuvwijtvofwuezzms:P6QoQcIdwn2k0937@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x"
+POSTGRES_USER="postgres"
+POSTGRES_HOST="db.zkjwuvwijtvofwuezzms.supabase.co"
+POSTGRES_PASSWORD="P6QoQcIdwn2k0937"
+POSTGRES_DATABASE="postgres"
+
+# ================================================================
+# SUPABASE CLIENT (Fixed URLs)
+# ================================================================
+NEXT_PUBLIC_SUPABASE_URL="https://zkjwuvwijtvofwuezzms.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inprand1dndpanR2b2Z3dWV6em1zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0NDA2MzgsImV4cCI6MjA3MDAxNjYzOH0.O-LDOKbw556YPaA7q0aK01YD7inrFDPsdgCxipBEM5k"
+SUPABASE_SERVICE_ROLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inprand1dndpanR2b2Z3dWV6em1zIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDQ0MDYzOCwiZXhwIjoyMDcwMDE2NjM4fQ.8IBQbQ0fAPYQqy7CXbqPMn9S5t6IxnXeq3e5t6A2BFc"
+SUPABASE_JWT_SECRET="TO+QRszXartKswEKN0UFhD3Z/zAy/rvrwavTT8CcMYTGgHnqrOkFxOrQvyCinxizF/2R03x++JbwezPh6yvtVg=="
+
+# ================================================================
+# AUTHENTICATION
+# ================================================================
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_Y2VydGFpbi10YXBpci0xMi5jbGVyay5hY2NvdW50cy5kZXYk"
+CLERK_SECRET_KEY="sk_test_rIsAjWiTuz89gp1F3DrxDmiXIO0hQrEYEtoR4V9ow8"
+NEXTAUTH_SECRET_KEY="ngp4Gjo3ScQ9wQRpPDphLLUM"
+
+# ================================================================
+# KEITH'S 8-PERSONA AI TRIBUNAL
+# ================================================================
+OPENAI_API_KEY="sk-proj-FRsMwVWGOhOhiUYrWqQny--4jqPka5-mUOiYctd8yXJ-hyD8lxJWZ0HeB9_16mVIZK8PJIGeM-T3BlbkFJ3gYjyPoBgI05Bdsc7ZUPPmT4dRelyOV9"
+ANTHROPIC_API_KEY="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"
+GEMINI_API_KEY="AIzaSyD4o5xNoC-uM-Cyq8gPOcbccVrP3R3UupI"
+PPLX_API_KEY="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"
+
+# ================================================================
+# STRIPE PAYMENTS (LIVE KEYS!)
+# ================================================================
+STRIPE_PUBLIC_KEY="pk_live_51RrpPvLWXaHROwgqTtoBi1GpK57m1me47ICcGjuXW7b4C2CmUoia4IuElFfwVonlyA1bX6FM8tdnrfaAzmK0nmvH00eP29PMIO"
+STRIPE_SECRET_KEY="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"
+STRIPE_WEBHOOK_SECRET="whsec_4RXwBqCr7u8RhjOXY9UELTML4DjwuOkE"
+
+# ================================================================
+# KEITH'S CONSCIOUSNESS CONFIGURATION  
+# ================================================================
+NEXT_PUBLIC_APP_NAME="gestalt-view1"
+NEXT_PUBLIC_FOUNDER="Keith Soyka"
+NEXT_PUBLIC_PHILOSOPHY="The founder IS the algorithm"
+NEXT_SITE_URL="http://localhost:3000"
+NEXT_REDIRECT_URLS="http://localhost:3000/"
+
+# ================================================================
+# DEPLOYMENT OPTIONS
+# ================================================================
+RAILWAY_DATABASE_URL="postgres-1t9x-production.up.railway.app"
+RAILWAY_PORT="shinkansen.proxy.rlwy.net:45687"
