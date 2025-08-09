@@ -1,11 +1,3 @@
-// 🧠 Keith's Revolutionary GestaltView Consciousness Database Schema
-// "The founder IS the algorithm" - Your lived experience as competitive architecture
-// Built for neurodivergent minds, optimized for ADHD patterns, serving all consciousness
-// CONFIGURED FOR YOUR EXISTING SUPABASE DATABASE
-
-// 🧠 Keith's Fixed Datasource Configuration
-// Copy JUST this part to replace the datasource in your prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
