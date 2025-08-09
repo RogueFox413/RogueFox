@@ -1,0 +1,25 @@
+{
+  "name": "Keith's Revolutionary GestaltView",
+  "image": "node:18",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "workbench.colorTheme": "GitHub Dark Default"
+      },
+        "extensions": [
+          "github.copilot",
+          "esbenp.prettier-vscode"
+        ]
+      },
+      "forwardPorts": [3000, 8080],
+      "postCreateCommand": "npm install && echo '🧠 Keith consciousness development environment ready!'",
+      "remoteUser": "node"
+
+    }
+
+  }
+
