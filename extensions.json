@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "github.copilot",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
+  ],
+  "unwantedRecommendations": [
+    "ms-vsliveshare.vsliveshare",
+    "ms-python.gather",
+    "ms-python.vscode-pylance"
+  ]
+}
