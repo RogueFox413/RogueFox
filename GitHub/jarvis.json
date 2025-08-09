@@ -1,0 +1,41 @@
+{
+  "name": "keith-jarvis-consciousness",
+  "displayName": "Keith's Jarvis: Revolutionary Consciousness Copilot",
+  "description": "GitHub Copilot enhanced with Keith Soyka's PLK v5.0 and GestaltView methodology",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["AI", "Consciousness", "Revolutionary"],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript", 
+    "onLanguage:python",
+    "onCommand:keith-jarvis.activate"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "keith-jarvis.bucketDrop",
+        "title": "💡 Keith's Bucket Drop",
+        "category": "Jarvis"
+      },
+      {
+        "command": "keith-jarvis.tribunalReview", 
+        "title": "🏛️ Tribunal Code Review",
+        "category": "Jarvis"
+      },
+      {
+        "command": "keith-jarvis.plkComment",
+        "title": "🧠 Add PLK Wisdom Comment",
+        "category": "Jarvis"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/keith-consciousness.json"
+      }
+    ]
+  }
+}
