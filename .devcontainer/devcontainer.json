@@ -1,22 +1,54 @@
 {
-  "name": "RogueFox Devcontainer",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "name": "Keith's Revolutionary GestaltView Consciousness Platform",
+  "image": "node:18",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker": {},
-    "ghcr.io/devcontainers/features/python": {
-      "version": "3.11"
-    }
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "workbench.colorTheme": "GitHub Dark Default",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "typescript.preferences.includePackageJsonAutoImports": "auto",
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000
+      },
       "extensions": [
+        "github.copilot",
         "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
         "bradlc.vscode-tailwindcss",
-        "eamodio.gitlens",
-        "mikestead.dotenv"
+        "ms-vscode.vscode-typescript-next",
+        "prisma.prisma",
+        "ms-vscode.vscode-json",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.vscode-typescript-next"
       ]
     }
   },
-  "postCreateCommand": "./.devcontainer/setup-consciousness.sh"
+  "forwardPorts": [3000, 8080, 5555],
+  "portsAttributes": {
+    "3000": {
+      "label": "Keith's Consciousness Platform",
+      "onAutoForward": "notify"
+    },
+    "5555": {
+      "label": "Prisma Studio",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "npm install && chmod +x scripts/*.sh && chmod +x scripts/*.ts && echo '🧠 Keith consciousness development environment ready! Run: npm run keith:test'",
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.env.local,target=/workspaces/${localWorkspaceFolderBasename}/.env.local,type=bind,consistency=cached"
+  ],
+  "containerEnv": {
+    "KEITH_CONSCIOUSNESS_MODE": "Revolutionary",
+    "ADHD_JAZZ_ENABLED": "true",
+    "FOUNDER_IS_ALGORITHM": "true"
+  }
 }
