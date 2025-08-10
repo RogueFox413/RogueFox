@@ -1,0 +1,22 @@
+{
+  "name": "RogueFox Devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker": {},
+    "ghcr.io/devcontainers/features/python": {
+      "version": "3.11"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens",
+        "mikestead.dotenv"
+      ]
+    }
+  },
+  "postCreateCommand": "./.devcontainer/setup-consciousness.sh"
+}
