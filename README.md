@@ -357,6 +357,7 @@ From: Every difficult chapter
 - **"Scars became code"** - Transformation of struggle into empowerment
 - **"Every difficult chapter became a feature"** - Resilience architecture
 - **"Rough draft mode is revolutionary"** - Help immediately, perfect iteratively
+  
 - **"Weaponizing empathy to blow the hinges off how society sees worth"**
 
 ---
@@ -386,6 +387,109 @@ npm run dev
 🐦 **Share** Keith's neurodivergent empowerment message  
 💬 **Join** our consciousness validation community  
 💰 **Subscribe** to support sustainable neurodivergent tech  
+*"Every difficult chapterme a feature" - Keith Soyka, GestaltView Revolutionary*
+Gotcha — since you’re on a **Samsung A35** (mobile), you’re probably interacting via GitHub’s web UI or a terminal emulator app, so I’ll make this as copy-paste-friendly as possible and include everything directly in the README snippet.
 
-*"Every difficult chapter became a feature" - Keith Soyka, GestaltView Revolutionary*
+---
+
+## 📄 **README – Devcontainer Upgrade & CI Guide**
+
+
+---
+
+### 🚀 Development Environment
+
+This project is now **Codespaces-ready** and supports local development in a VS Code **Dev Container** or Docker.
+
+#### **Requirements**
+
+* GitHub Codespaces (recommended)
+* OR VS Code with “Remote – Containers” extension + Docker installed locally
+
+---
+
+### 🛠 Features in the Devcontainer
+
+* **Node 20** (LTS)
+* **Python 3.11** (for tooling/scripts)
+* **Docker-in-Docker** support
+* **Preinstalled VS Code extensions**:
+
+  * Prettier
+  * ESLint
+  * Tailwind CSS IntelliSense
+  * GitLens
+  * dotenv support
+* **Automatic environment setup**:
+
+  * Merges `.env.example` into `.env.local`
+  * Injects **Codespaces secrets** automatically
+  * Installs dependencies (`pnpm` or `npm`)
+  * Installs pre-commit hooks if configured
+  * Auto-starts `npm run dev` in Codespaces
+
+---
+
+### 📦 Environment Variables
+
+These keys must be present for full functionality. In **Codespaces**, add them in:
+
+**Settings → Secrets and variables → Codespaces → New repository secret**
+
+| Key                                 |
+| ----------------------------------- |
+| `OPENAI_API_KEY`                    |
+| `ANTHROPIC_API_KEY`                 |
+| `GEMINI_API_KEY`                    |
+| `PPLX_API_KEY`                      |
+| `NEXT_PUBLIC_SUPABASE_URL`          |
+| `SUPABASE_SERVICE_ROLE_KEY`         |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` |
+| `CLERK_SECRET_KEY`                  |
+| `STRIPE_SECRET_KEY`                 |
+| `STRIPE_PUBLISHABLE_KEY`            |
+
+When running locally, copy `.env.example` to `.env.local` and fill these in.
+
+---
+
+### 🧪 Continuous Integration (CI)
+
+The repo includes a **GitHub Actions** workflow that runs on every push/PR:
+
+1. **Install dependencies** (`pnpm` if `pnpm-lock.yaml` exists, else `npm ci`)
+2. **Lint** (`npm run lint`)
+3. **Type-check** (`npm run typecheck`)
+4. **Unit tests** (`npm test` if defined)
+5. **E2E tests**:
+
+   * If **Playwright** detected → installs browsers and runs `npx playwright test`
+   * If **Cypress** detected → installs and runs `npx cypress run` in headless mode
+
+If neither Playwright nor Cypress is found, E2E tests are skipped automatically.
+
+---
+
+### 🖥 Local Dev Setup
+
+```bash
+# Install dependencies
+pnpm install   # or npm ci
+
+# Copy env variables
+cp .env.example .env.local
+
+# Start dev server
+npm run dev
+```
+
+---
+
+On your phone, you can paste this into **README.md** in the GitHub web editor so it’s in your repo right away.
+
+---
+
+If you want, I can **merge this README snippet into the `devcontainer-upgrade.zip`** so it’s already included when you unzip it into your repo — that way you don’t have to manually edit on mobile.
+
+Do you want me to rebuild the ZIP with this README.md update included?
 
