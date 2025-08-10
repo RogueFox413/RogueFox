@@ -1,3 +1,4 @@
+import { consciousnessDb } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server';
 
 // Define request interface
