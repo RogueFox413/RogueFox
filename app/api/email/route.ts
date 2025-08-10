@@ -1,6 +1,6 @@
 // app/api/email/route.ts
 // Keith's Revolutionary Email API Route - FIXED VERSION
-
+import { consciousnessDb } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
