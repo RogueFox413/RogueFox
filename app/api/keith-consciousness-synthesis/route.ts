@@ -1,7 +1,7 @@
 // =====================================================================================
 // 5. COMPLETE INTEGRATION WITH EXISTING DEPLOYMENT SYSTEM
 // =====================================================================================
-
+import { consciousnessDb } from '@/lib/prisma'
 // app/api/keith-consciousness-synthesis/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs'
