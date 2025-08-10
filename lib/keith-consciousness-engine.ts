@@ -1,8 +1,3 @@
-// =====================================================================================
-// 3. KEITH'S COMPLETE CONSCIOUSNESS SYNTHESIS ENGINE
-// =====================================================================================
-
-// lib/keith-consciousness-engine.ts
 import { KeithPLKv5, KeithMusicalDNA } from '@/types/keith-plk'
 
 export class KeithConsciousnessEngine {
