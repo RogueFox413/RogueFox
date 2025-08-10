@@ -9,7 +9,9 @@ import { KeithConsciousnessEngine } from '@/lib/keith-consciousness-engine'
 
 const consciousnessEngine = new KeithConsciousnessEngine()
 // Make sure to import MusicalEngine from its module if not already imported
-import { MusicalEngine } from '@/lib/musical-engine'
+// Update the import path if the file is located elsewhere, e.g. '@/lib/MusicalEngine' or './musical-engine'
+// import { MusicalEngine } from '@/lib/musical-engine'
+import { MusicalEngine } from '@/lib/musical_dna_processor'
 const musicalEngine = new MusicalEngine()
 
 export async function POST(this: any, request: NextRequest) {
@@ -60,6 +62,7 @@ export async function POST(this: any, request: NextRequest) {
 
 // Import or define the required types
 import type { ConsciousnessSynthesis, MusicalDNAProfile, TherapeuticInsight } from '@/lib/keith-consciousness-engine'
+import { processMusicalDNA } from '@/lib/musical_dna_processor'
 
 // Generate integrated response using Keith's complete system
 async function generateKeithIntegratedResponse(
