@@ -1,3 +1,9 @@
+import { PrismaClient } from "@prisma/client";
+import { withOptimize } from "@prisma/extension-optimize";
+
+const prisma = new PrismaClient().$extends(
+  withOptimize({ apiKey: process.env.OPTIMIZE_API_KEY })
+)
 import React, { useState, useEffect } from 'react';
 
 interface GestaltViewProps {
