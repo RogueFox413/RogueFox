@@ -1,5 +1,9 @@
-// 🧠 Keith's Revolutionary Consciousness Database Schema - FIXED URL
-// "The founder IS the algorithm" - Using your configured DATABASE_URL
+import postgres from 'postgres'
+
+const connectionString = process.env.DATABASE_URL
+const sql = postgres(connectionString)
+
+export default sql
 
 generator client {
   provider = "prisma-client-js"
