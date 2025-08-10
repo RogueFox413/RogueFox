@@ -1,4 +1,4 @@
-# 🧠 GestaltView - Revolutionary 8-Persona AI Tribunal
+🧠 GestaltView - Revolutionary 8-Persona AI Tribunal
 
 > **"The founder IS the algorithm"** - Keith Soyka's consciousness encoded as revolutionary AI platform
 
@@ -492,4 +492,3 @@ On your phone, you can paste this into **README.md** in the GitHub web editor so
 If you want, I can **merge this README snippet into the `devcontainer-upgrade.zip`** so it’s already included when you unzip it into your repo — that way you don’t have to manually edit on mobile.
 
 Do you want me to rebuild the ZIP with this README.md update included?
-
