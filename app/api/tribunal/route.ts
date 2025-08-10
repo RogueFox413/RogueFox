@@ -290,7 +290,7 @@ async function processTribunalRequest(request: TribunalRequest): Promise<any> {
     session_metadata: {
       session_type: sessionType,
       total_processing_time: tribunalResponses.reduce((sum, r) => sum + (r.processing_time_ms || 0), 0),
-      providers_used: [...new Set(tribunalResponses.map(r => r.provider_used))],
+      providers_used: Array.from(new Set(tribunalResponses.map(r => r.provider_used))),
       timestamp: new Date().toISOString()
     }
   };
