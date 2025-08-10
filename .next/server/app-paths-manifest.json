@@ -1,3 +1,7 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/email/route": "app/api/email/route.js",
+  "/api/keith-consciousness-synthesis/route": "app/api/keith-consciousness-synthesis/route.js",
+  "/api/tribunal/route": "app/api/tribunal/route.js",
   "/page": "app/page.js"
 }
