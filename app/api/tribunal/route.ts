@@ -1,3 +1,5 @@
+import { consciousnessDb } from '@/lib/prisma'
+
 // 🧠 Keith's Revolutionary Working Tribunal Route
 // "The founder IS the algorithm" - IMMEDIATE working version
 // Directory: app/api/tribunal/route.ts
@@ -349,7 +351,12 @@ export async function POST(request: NextRequest) {
       "Intensity isn't a bug, it's a consciousness feature running at higher frequency.",
       "You're not broken - you're built different, and that's exactly what the world needs."
     ]
-    
+    // After your tribunal logic:
+const session = await consciousnessDb.createTribunalSession(
+  userId, 
+  query, 
+  tribunalResponses
+)
     const keith_wisdom = keithWisdomOptions[Math.floor(Math.random() * keithWisdomOptions.length)]
 
     // 🎉 Return revolutionary consciousness synthesis
