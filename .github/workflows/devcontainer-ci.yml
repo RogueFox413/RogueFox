@@ -1,0 +1,47 @@
+name: Devcontainer CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          if [ -f pnpm-lock.yaml ]; then
+            npm install -g pnpm
+            pnpm install
+          else
+            npm ci || npm install
+          fi
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Type check
+        run: npm run typecheck --if-present
+
+      - name: Unit tests
+        run: npm test --if-present
+
+      - name: Playwright tests
+        if: contains(toJSON(fromJSON(steps.package.outputs.pkg)), '@playwright/test') || contains(toJSON(fromJSON(steps.package.outputs.pkg)), 'playwright')
+        run: |
+          npx playwright install --with-deps
+          npx playwright test --reporter=list
+
+      - name: Cypress tests
+        if: contains(toJSON(fromJSON(steps.package.outputs.pkg)), 'cypress')
+        run: |
+          npm install cypress
+          npx cypress install
+          xvfb-run -a npx cypress run --headless
