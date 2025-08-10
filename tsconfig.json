@@ -19,19 +19,19 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/styles/*": ["./src/styles/*"],
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/styles/*": ["./styles/*"],
       "@/types/*": ["./src/types/*"],
-      "@/app/*": ["./src/app/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "a@/prisma/*": ["./src/prisma/*"],
-      "@scripts/*": ["./scr/spripts/*"],
-      "@/utils/*": ["./src/utils/*"],
-      "@/consciousness/*": ["./src/consciousness/*"],
-      "@/tribunal/*": ["./src/tribunal/*"],
-      "@/musical-dna/*": ["./src/musical-dna/*"]
+      "@/app/*": ["./app/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "a@/prisma/*": ["./prisma/*"],
+      "@scripts/*": ["./spripts/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/consciousness/*": ["./consciousness/*"],
+      "@/tribunal/*": ["./tribunal/*"],
+      "@/musical-dna/*": ["./musical-dna/*"]
     }
   },
   "include": [
