@@ -4,15 +4,17 @@
 import { consciousnessDb } from '@/lib/prisma'
 // app/api/keith-consciousness-synthesis/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs'
-import { KeithConsciousnessEngine, MusicalDNAEngine } from '@/lib/keith-consciousness-engine'
+import { auth } from '@clerk/nextjs/server'
+import { KeithConsciousnessEngine } from '@/lib/keith-consciousness-engine'
 
 const consciousnessEngine = new KeithConsciousnessEngine()
-const musicalEngine = new MusicalDNAEngine()
+// Make sure to import MusicalEngine from its module if not already imported
+import { MusicalEngine } from '@/lib/musical-engine'
+const musicalEngine = new MusicalEngine()
 
-export async function POST(request: NextRequest) {
+export async function POST(this: any, request: NextRequest) {
   try {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -56,6 +58,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// Import or define the required types
+import type { ConsciousnessSynthesis, MusicalDNAProfile, TherapeuticInsight } from '@/lib/keith-consciousness-engine'
+
 // Generate integrated response using Keith's complete system
 async function generateKeithIntegratedResponse(
   consciousnessSynthesis: ConsciousnessSynthesis,
@@ -76,7 +81,7 @@ async function generateKeithIntegratedResponse(
   
   if (musicalDNA) {
     response += `**Your Musical DNA Insights:**\n`
-    musicalDNA.therapeuticInsights.forEach(insight => {
+    musicalDNA.therapeuticInsights.forEach((insight: TherapeuticInsight) => {
       response += `• ${insight.description}\n`
       response += `  *Keith's Perspective:* ${insight.keithMetaphorAlignment}\n\n`
     })
