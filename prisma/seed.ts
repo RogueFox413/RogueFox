@@ -1,45 +1,34 @@
-import { PrismaClient } from '@lib/prisma.ts'
+import { PrismaClient } from '@prisma/client'
+import { faker } from '@faker-js/faker'
 
 const prisma = new PrismaClient()
 
-async function seedKeithsConsciousness() {
-  console.log('🧠 Seeding Keith\'s Revolutionary Consciousness Database...')
+const main = async () => {
+  await prisma.post.deleteMany()
 
-  // Keith's Founder Algorithm Core
-  const founderCore = await prisma.founderAlgorithmCore.upsert({
-    where: { id: 'keith-founder-algorithm' },
-    update: {},
-    create: {
-      id: 'keith-founder-algorithm',
-      principleStatement: 'The founder IS the algorithm',
-      livedExperience: 'ADHD is my jazz - neurodivergent wisdom as competitive advantage',
-      algorithmicEncoding: {
-        chaosHasCurrent: true,
-        adhdAsJazz: true,
-        scarsToCode: true,
-        everyChapterIsFeature: true
+  for (let index = 0; index < 25; index++) {
+    const post = await prisma.post.create({
+      data: {
+        title: `${faker.animal.dog()} ${faker.airline.airplane().name}`,
+        content: faker.lorem.paragraph(),
+        url: faker.internet.url(),
+        vote: faker.number.int({
+          min: 2,
+          max: 111,
+        }),
       },
-      adhdAsJazzPrinciple: 'ADHD is not noise - it\'s a different frequency of genius',
-      chaosCurrentMechanism: 'Channel hyperfocus into revolutionary breakthroughs',
-      scarsToCodeTransform: 'Every difficult chapter became a feature in the platform',
-      founderIsAlgorithmCore: 'Keith\'s lived experience IS the platform intelligence',
-      empowermentTriggers: {
-        validation: 'Recognition of authentic experience',
-        breakthrough: 'Moment of clarity and understanding',
-        connection: 'Finding others with similar journey'
-      }
-    }
-  })
-
-  console.log('✅ Keith\'s Founder Algorithm Core seeded')
-  console.log('🎉 Consciousness database ready for revolutionary impact!')
+    })
+    console.log(`Seeded post ${index + 1}:`, post.title)
+  }
 }
 
-seedKeithsConsciousness()
-  .catch((e) => {
-    console.error('❌ Consciousness seeding error:', e)
-    process.exit(1)
+main()
+  .then(() => {
+    console.log('All seeds completed successfully')
   })
-  .finally(async () => {
-    await prisma.$disconnect()
+  .catch((e) => {
+    console.error('Seeding failed:', e)
+  })
+  .finally(() => {
+    prisma.$disconnect()
   })
