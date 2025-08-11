@@ -22,6 +22,7 @@
     "db:setup": "npm run db:generate && npm run db:push && npm run db:seed",
     "musical-dna:analyze": "tsx scripts/musical-dna-analysis.ts",
     "musical-dna:sync": "tsx scripts/sync-spotify.ts",
+    "node": "node test-live-consciousness.js",
     "tribunal:test": "tsx scripts/test-tribunal.ts",
     "tribunal:benchmark": "tsx scripts/benchmark-tribunal.ts",
     "tribunal:activate": "tsx scripts/activate-tribunal.ts",
