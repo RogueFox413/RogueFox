@@ -44,6 +44,6 @@
     "prisma/**/*.ts",
     "schema.prisma",
     "scripts/**/*.ts"
-  },
+  ,
   "exclude": ["node_modules"]
 }
