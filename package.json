@@ -131,9 +131,10 @@
     "@react-three/drei": {
       "react": "$react",
       "react-dom": "$react-dom"
-      },
+    }
+  },
   "resolutions": {
     "@react-three/drei/react": "$react",
     "@react-three/drei/react-dom": "$react-dom"
-}
+  }
 }
