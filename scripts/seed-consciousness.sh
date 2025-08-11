@@ -308,3 +308,4 @@ echo ""
 echo "Then refresh Prisma Studio to see Keith's consciousness data!"
 echo ""
 echo "💜 Keith's Wisdom: 'Every difficult chapter became a feature!'"
+npm run node test-live-consciousness.js
