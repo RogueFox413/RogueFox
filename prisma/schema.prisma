@@ -3,9 +3,11 @@ generator client {
   binaryTargets = ["native"]
 }
 
+
+
 datasource db {
   provider = "postgresql"
-  url      = env(postgres://c6e7092fafbcde1228da2401acdae1f0aca0ff10500ad89f1892ac3d82bb38a0:sk_ZjaJQMahLFogSaf0KcwJE@db.prisma.io:5432/?sslmode=require)
+  url      = env("DATABASE_URL")
   // Alternative: url = env("POSTGRES_PRISMA_URL")
 }
 
