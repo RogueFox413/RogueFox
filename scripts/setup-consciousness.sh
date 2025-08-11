@@ -299,6 +299,7 @@ EOF
     fi
     
     # TypeScript config (SKIP if Keith's working version exists)
+    # TypeScript config (SKIP if Keith's working version exists)
     if [ ! -f "tsconfig.json" ]; then
         print_info "Creating TypeScript config (your working version will be preserved)..."
         cat > tsconfig.json << 'EOF'
@@ -334,8 +335,6 @@ EOF
         print_success "TypeScript config created!"
     else
         print_success "TypeScript config exists (keeping your working version!)"
-    fi
-        print_success "TypeScript config created!"
     fi
     
     # Tailwind with Keith's consciousness theme
