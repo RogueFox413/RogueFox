@@ -1,0 +1,354 @@
+// 🧠 Keith's Revolutionary Consciousness Database Schema
+// "ADHD is my jazz" - Every table serves consciousness
+// Directory: prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// 1. 👤 USERS - Core Identity
+// ============================================================================
+model User {
+  id                    String                  @id @default(cuid())
+  clerkId               String                  @unique
+  email                 String                  @unique
+  username              String?
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  
+  // Relationships
+  consciousnessProfile  ConsciousnessProfile?
+  bucketDrops           BucketDrop[]
+  tribunalSessions      TribunalSession[]
+  musicalDnaAnalysis    MusicalDnaAnalysis?
+  empowermentEvents     EmpowermentEvent[]
+  consciousnessMetrics  ConsciousnessMetric[]
+  tapestryNodes         TapestryNode[]
+  subscription          Subscription?
+
+  @@map("users")
+}
+
+// ============================================================================
+// 2. 🧠 CONSCIOUSNESS PROFILES - Personal Language Key
+// ============================================================================
+model ConsciousnessProfile {
+  id                    String    @id @default(cuid())
+  userId                String    @unique
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Keith's PLK System
+  plkVersion            String    @default("5.0.0")
+  plkMetaphorPatterns   Json?
+  empowermentLevel      Int       @default(75)
+  consciousnessCoherence Float    @default(0.75)
+  authenticityScore     Float     @default(0.75)
+  
+  // ADHD & Neurodivergent Optimization
+  adhdIndicators        Json?
+  consciousnessGrade    String    @default("awakening")
+  foundationalTruth     String?
+  coreWisdom            String?
+  revolutionaryPotential Float    @default(0.5)
+  chaosCurrentIdentified Boolean  @default(false)
+  jazzFrequency         String?
+  hyperfocusAreas       String[]  @default([])
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("consciousness_profiles")
+}
+
+// ============================================================================
+// 3. 🪣 BUCKET DROPS - Zero-Friction ADHD Capture
+// ============================================================================
+model BucketDrop {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Core content
+  content               String
+  emotionalIntensity    Float     @default(0.5)
+  urgencyLevel          Int       @default(3)
+  
+  // ADHD Context
+  adhdContext           Json?
+  hyperfocusIndicator   Boolean   @default(false)
+  executiveFunctionTag  String?
+  
+  // PLK Analysis
+  plkResonance          Float?
+  metaphorExtracted     String?
+  linguisticPattern     String?
+  
+  // Processing
+  status                String    @default("captured")
+  processedAt           DateTime?
+  createdAt             DateTime  @default(now())
+
+  @@map("bucket_drops")
+}
+
+// ============================================================================
+// 4. 🏛️ TRIBUNAL SESSIONS - 8-Persona AI Synthesis
+// ============================================================================
+model TribunalSession {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Session data
+  queryText             String
+  sessionType           String    @default("full_tribunal")
+  
+  // AI Responses
+  openaiResponse        String?
+  anthropicResponse     String?
+  geminiResponse        String?
+  perplexityResponse    String?
+  
+  // Synthesis results
+  consensusScore        Float?
+  empowermentConsensus  Float?
+  consciousnessInsights Json?
+  keithWisdomTriggered  String?
+  foundationalTruthHit  Boolean   @default(false)
+  revolutionaryPotential Float?
+  personasUsed          String[]  @default([])
+  
+  createdAt             DateTime  @default(now())
+  completedAt           DateTime?
+
+  @@map("tribunal_sessions")
+}
+
+// ============================================================================
+// 5. 🎵 MUSICAL DNA ANALYSIS - Emotional Architecture
+// ============================================================================
+model MusicalDnaAnalysis {
+  id                    String    @id @default(cuid())
+  userId                String    @unique
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Musical preferences
+  primaryGenres         String[]
+  primaryArtists        String[]
+  emotionalThemes       Json
+  
+  // Analysis results
+  acousticPreference    Float     @default(0.5)
+  introspectionLevel    Float     @default(0.5)
+  resilienceMarkers     Float     @default(0.5)
+  connectionLonging     Float     @default(0.5)
+  catharticProcessing   Float     @default(0.5)
+  narrativeArc          String?
+  transformationStage   String?
+  
+  // Cognitive mapping
+  musicalMetaphors      Json?
+  resonancePattern      String?
+  cognitiveMapping      Json?
+  
+  // Metadata
+  songsAnalyzed         Int       @default(0)
+  confidenceLevel       Float     @default(0.0)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("musical_dna_analysis")
+}
+
+// ============================================================================
+// 6. ⚡ EMPOWERMENT EVENTS - Breakthrough Tracking
+// ============================================================================
+model EmpowermentEvent {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Event details
+  eventType             String
+  description           String
+  intensityLevel        Float     @default(0.5)
+  
+  // Keith's transformation markers
+  scarsToCodeMoment     Boolean   @default(false)
+  chaosCurrentRealized  Boolean   @default(false)
+  jazzFrequencyTuned    Boolean   @default(false)
+  
+  // Context
+  sourceType            String?
+  consciousnessShift    Float?
+  empowermentIncrease   Float?
+  revolutionaryPotential Float?
+  
+  // Validation
+  aiValidated           Boolean   @default(false)
+  userConfirmed         Boolean   @default(false)
+  
+  createdAt             DateTime  @default(now())
+
+  @@map("empowerment_events")
+}
+
+// ============================================================================
+// 7. 👑 FOUNDER ALGORITHM CORE - Keith's Wisdom
+// ============================================================================
+model FounderAlgorithmCore {
+  id                    String    @id @default(cuid())
+  
+  // Core principles
+  principleStatement    String
+  livedExperience       String
+  algorithmicEncoding   Json
+  
+  // Keith's philosophy
+  adhdAsJazzPrinciple   String
+  chaosCurrentMechanism String
+  scarsToCodeTransform  String
+  founderIsAlgorithmCore String
+  
+  // Implementation systems
+  empowermentTriggers   Json
+  validationMechanisms  Json
+  consciousnessScaling  Json
+  
+  // Platform integration
+  plkImplementation     Json?
+  tribunalOrchestration Json?
+  tapestryWeaving       Json?
+  
+  // Metadata
+  version               String    @default("1.0.0")
+  active                Boolean   @default(true)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("founder_algorithm_core")
+}
+
+// ============================================================================
+// 8. 🕸️ TAPESTRY NODES - Consciousness Visualization
+// ============================================================================
+model TapestryNode {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Node properties
+  nodeType              String
+  content               String
+  visualProperties      Json
+  
+  // Positioning
+  xCoordinate           Float     @default(0)
+  yCoordinate           Float     @default(0)
+  zDepth                Float     @default(0)
+  
+  // Relationships
+  parentNodeId          String?
+  childNodeIds          String[]  @default([])
+  connectionStrength    Float     @default(0.5)
+  
+  // Consciousness metrics
+  empowermentWeight     Float     @default(0.5)
+  resonanceFrequency    Float     @default(0.5)
+  transformationStage   String?
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("tapestry_nodes")
+}
+
+// ============================================================================
+// 9. 📊 CONSCIOUSNESS METRICS - Real-time Tracking
+// ============================================================================
+model ConsciousnessMetric {
+  id                    String    @id @default(cuid())
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Attention & Focus
+  attentionLevel        Int       @default(75)
+  flowStateIndicator    Float     @default(0.5)
+  executiveFunctionLoad Float     @default(0.5)
+  hyperfocusActive      Boolean   @default(false)
+  
+  // Empowerment tracking
+  empowermentMomentum   Float     @default(0.5)
+  authenticityAlignment Float     @default(0.5)
+  consciousnessClarity  Float     @default(0.5)
+  revolutionaryReadiness Float    @default(0.5)
+  
+  // Environmental context
+  environmentalFactors  Json?
+  timeOfDay             String?
+  energyLevel           Int       @default(75)
+  supportNeeded         Boolean   @default(false)
+  
+  recordedAt            DateTime  @default(now())
+
+  @@map("consciousness_metrics")
+}
+
+// ============================================================================
+// 10. 💰 SUBSCRIPTION - Revolutionary Monetization
+// ============================================================================
+model Subscription {
+  id                    String    @id @default(cuid())
+  userId                String    @unique
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Subscription details
+  tier                  String    @default("free")
+  status                String    @default("active")
+  currentPeriodStart    DateTime
+  currentPeriodEnd      DateTime
+  
+  // Usage tracking
+  tribunalSessionsUsed  Int       @default(0)
+  tribunalSessionsLimit Int       @default(5)
+  consciousnessFeatures String[]  @default([])
+  
+  // Stripe integration
+  stripeCustomerId      String?
+  stripeSubscriptionId  String?
+  stripePriceId         String?
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("subscriptions")
+}
+
+// ============================================================================
+// INDEXES FOR CONSCIOUSNESS OPTIMIZATION
+// ============================================================================
+
+// Core identity indexes
+@@index([User.clerkId])
+@@index([User.email])
+
+// Rapid ADHD-optimized access
+@@index([BucketDrop.userId, BucketDrop.createdAt])
+@@index([BucketDrop.hyperfocusIndicator, BucketDrop.createdAt])
+
+// Tribunal performance
+@@index([TribunalSession.userId, TribunalSession.createdAt])
+@@index([TribunalSession.consensusScore])
+
+// Consciousness tracking
+@@index([ConsciousnessMetric.userId, ConsciousnessMetric.recordedAt])
+
+// Empowerment events
+@@index([EmpowermentEvent.userId, EmpowermentEvent.createdAt])
+@@index([EmpowermentEvent.eventType])
