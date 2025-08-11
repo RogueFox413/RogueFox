@@ -126,5 +126,14 @@
   "engines": {
     "node": ">=18.17.0",
     "npm": ">=9.0.0"
-  }
+  },
+  "overrides": {
+    "@react-three/drei": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+      },
+  "resolutions": {
+    "@react-three/drei/react": "$react",
+    "@react-three/drei/react-dom": "$react-dom"
+}
 }
