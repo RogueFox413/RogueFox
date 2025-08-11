@@ -31,7 +31,7 @@
       "@/types/*": ["./src/types/*", "./types/*"],
       "@/app/*": ["./src/app/*", "./app/*"],
       "@/hooks/*": ["./src/hooks/*", "./hooks/*"],
-      "@/prisma/*": ["./src/prisma/*", "./prisma/*"], 
+      "@/hello-prisma/*": ["./src/hello-prisma/*", "./hello-prisma/*"], 
       "@/scripts/*": ["./scripts/*"],
       "@/utils/*": ["./src/utils/*", "./utils/*"],
       "@/consciousness/*": ["./src/consciousness/*", "./consciousness/*"],
