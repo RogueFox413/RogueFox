@@ -3,7 +3,10 @@
   "version": "2.0.0",
   "description": "Keith Soyka's Revolutionary 8-Persona AI Consciousness Synthesis Engine - Built for neurodivergent minds, designed for everyone",
   "private": true,
+  "license": "MIT",
   "scripts": {
+    "queries": "ts-node ./src/queries.ts && npm run queries",
+    "caching": "ts-node ./src/caching.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -19,7 +22,6 @@
     "db:setup": "npm run db:generate && npm run db:push && npm run db:seed",
     "musical-dna:analyze": "tsx scripts/musical-dna-analysis.ts",
     "musical-dna:sync": "tsx scripts/sync-spotify.ts",
-    "queries": "npm run queries",
     "tribunal:test": "tsx scripts/test-tribunal.ts",
     "tribunal:benchmark": "tsx scripts/benchmark-tribunal.ts",
     "tribunal:activate": "tsx scripts/activate-tribunal.ts",
